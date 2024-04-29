@@ -17,9 +17,10 @@ public class Inf_Sis extends JFrame {
     JButton cmdLlamada1, cmdLlamada2, cmdLlamada3;
     
     Inf_Sis (String titulo){
-    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      super("Llamadas");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(340, 100);
-    lbltitulo = new JLabel("Interface de llamadas");
+    lbltitulo = new JLabel("Interfaz de llamadas");
     cmdLlamada1 = new JButton("Llamada 1");
     cmdLlamada2 = new JButton("Llamada 2");
     cmdLlamada3 = new JButton("Llamada 3");
@@ -49,12 +50,12 @@ public class Inf_Sis extends JFrame {
     
     cmdLlamada2.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e) {
-       
+       new Panel2("Llamada 2");
     }});
     
     cmdLlamada3.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent e) {
-       
+       new Panel3("Lamada 3");
     }});
     
     JPanel paneltitulo= new JPanel();
