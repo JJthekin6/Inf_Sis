@@ -33,7 +33,6 @@ class Panel3 extends JFrame {
                 } else {
                     button.setText("Reproducir");
                     ManejadorAudio.detenerReproduccion();
-                    // Aquí puedes agregar lógica para detener la grabación
                 }
             }
         });

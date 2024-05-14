@@ -42,6 +42,14 @@ public class ManejadorAudio {
     private static TargetDataLine lineaGrabacion;  //Línea del microfonó principal del sistema
     private static SourceDataLine lineaReproduccion; //Línea del altavoz principal del sistema
 
+    //M. SET
+    public static void setArchivo(File archivo) {
+        ManejadorAudio.archivo = archivo;
+    }
+    public static void setArchivo(String direccionArchivo) {
+        ManejadorAudio.archivo = new File(direccionArchivo);
+    }
+
     //M. INICIAR GRABACIÓN
     /* Este es el método que se ejecuta cuando le picamos al botón de "Grabar" en la llamada 2*/
     public static void iniciarGrabacion() {
