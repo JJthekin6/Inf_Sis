@@ -21,7 +21,7 @@ class Panel2 extends JFrame {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(250, 200);
         frame.setLayout(new FlowLayout());
-        buscadorArchivos.setFileFilter(new FileNameExtensionFilter("archivos WAV", ".wav"));
+        buscadorArchivos.setFileFilter(new FileNameExtensionFilter("archivos WAV", "wav"));
 
         
         // ActionListener para cambiar el texto del botón cuando se hace clic en él
@@ -30,15 +30,17 @@ class Panel2 extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                grabando = !grabando; // Cambiar el estado de grabando
-                if (grabando) {
+                if (!grabando) {
                     buscadorArchivos.setDialogTitle("Elegir ubicación de guardado");
                     int estadoBusqueda = buscadorArchivos.showSaveDialog(Panel2.this);
                     if (estadoBusqueda == JFileChooser.APPROVE_OPTION) {
+                        grabando = !grabando;
                         button.setText("Detener");
+                        ManejadorAudio.setArchivo(buscadorArchivos.getSelectedFile());
                         ManejadorAudio.iniciarGrabacion();
                     }
                 } else {
+                    grabando = !grabando;
                     button.setText("Grabar");
                     ManejadorAudio.detenerGrabacion();
                     frame.dispose();
